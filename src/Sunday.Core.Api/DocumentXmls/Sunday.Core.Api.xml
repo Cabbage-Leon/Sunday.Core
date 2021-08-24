@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sunday.Core.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Sunday.Core.Api.Filter.GloalActionWrapFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            方法执行前
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Filter.GloalActionWrapFilter.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            方法执行后
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Filter.GloalActionWrapFilter.OnException(System.Exception)">
+            <summary>
+            异常处理
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Filter.GloalActionWrapFilter.RecordRequest(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            记录请求
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Filter.GloalActionWrapFilter.RecordResult(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            记录请求返回结果
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Filter.GloalActionWrapFilter.WriteLog(System.String,System.Exception)">
+            <summary>
+            自定义返回格式
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.ServiceExtensions.AutoMapperSetup">
+            <summary>
+            Automapper 启动服务
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.ServiceExtensions.CorsSetup">
+            <summary>
+            Cors 启动服务
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.ServiceExtensions.DbSetup">
+            <summary>
+            Db 启动服务
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.ServiceExtensions.JobSetup">
+            <summary>
+            任务调度 启动服务
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.ServiceExtensions.MemoryCacheSetup">
+            <summary>
+            Memory缓存 启动服务
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.ServiceExtensions.MiniProfilerSetup">
+            <summary>
+            MiniProfiler 启动服务
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.ServiceExtensions.RedisCacheSetup">
+            <summary>
+            Redis缓存 启动服务
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.ServiceExtensions.SqlSugarSetup">
+            <summary>
+            SqlSugar 启动服务
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.ServiceExtensions.SwaggerSetup">
+            <summary>
+            Swagger 启动服务
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.ServiceExtensions.CustomApiVersion">
+            <summary>
+            自定义版本
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.ServiceExtensions.CustomApiVersion.ApiVersions">
+            <summary>
+            Api接口版本 自定义
+            </summary>
+        </member>
+        <member name="F:Sunday.Core.Api.ServiceExtensions.CustomApiVersion.ApiVersions.V1">
+            <summary>
+            V1 版本
+            </summary>
+        </member>
+        <member name="F:Sunday.Core.Api.ServiceExtensions.CustomApiVersion.ApiVersions.V2">
+            <summary>
+            V2 版本
+            </summary>
+        </member>
+    </members>
+</doc>
