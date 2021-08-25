@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dto\" />
-    <Folder Include="Request\" />
-    <Folder Include="Response\" />
+    <Folder Include="Dtos\" />
+    <Folder Include="Requests\" />
+    <Folder Include="Responses\" />
   </ItemGroup>
 
 </Project>

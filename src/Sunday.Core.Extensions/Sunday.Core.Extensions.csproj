@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="AspNetCoreRateLimit" Version="3.0.5" />
+    <PackageReference Include="Autofac.Extras.DynamicProxy" Version="5.0.0" />
+    <PackageReference Include="Com.Ctrip.Framework.Apollo" Version="2.4.4" />
+    <PackageReference Include="Com.Ctrip.Framework.Apollo.Configuration" Version="2.4.1.1" />
+    <PackageReference Include="Consul" Version="1.6.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="5.0.0-preview.2.20167.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0-preview.2.20160.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="3.1.0" />
+    <PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="6.0.1" />
+    <PackageReference Include="InitQ" Version="1.0.0.7" />
+
+    <PackageReference Include="nacos-sdk-csharp-unofficial" Version="0.8.5" />
+    <PackageReference Include="nacos-sdk-csharp-unofficial.AspNetCore" Version="0.8.5" />
+    <PackageReference Include="nacos-sdk-csharp-unofficial.Extensions.Configuration" Version="0.8.5" />
+    <PackageReference Include="nacos-sdk-csharp-unofficial.IniParser" Version="0.8.5" />
+    <PackageReference Include="nacos-sdk-csharp.AspNetCore" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sunday.Core.Application\Sunday.Core.Application.csproj" />
+    <ProjectReference Include="..\Sunday.Core.EventBus\Sunday.Core.EventBus.csproj" />
+    <ProjectReference Include="..\Sunday.Core.Infrastructure\Sunday.Core.Infrastructure.csproj" />
+    <ProjectReference Include="..\Sunday.Core.Tasks\Sunday.Core.Tasks.csproj" />
+  </ItemGroup>
+</Project>

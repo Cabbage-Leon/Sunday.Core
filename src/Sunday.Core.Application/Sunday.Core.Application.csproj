@@ -1,15 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Services\" />
+    <Folder Include="DomainEventHandlers\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="10.1.1" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="InitQ" Version="1.0.0.7" />
+    <PackageReference Include="log4net" Version="2.0.12" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sunday.Core.Domain\Sunday.Core.Domain.csproj" />
+    <ProjectReference Include="..\Sunday.Core.EventBus\Sunday.Core.EventBus.csproj" />
+    <ProjectReference Include="..\Sunday.Core.Infrastructure\Sunday.Core.Infrastructure.csproj" />
+    <ProjectReference Include="..\Sunday.Core.Model\Sunday.Core.Model.csproj" />
+    <ProjectReference Include="..\Sunday.Core.Project.Persistence\Sunday.Core.Persistence.csproj" />
   </ItemGroup>
 </Project>

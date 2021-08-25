@@ -4,6 +4,21 @@
         <name>Sunday.Core.Api</name>
     </assembly>
     <members>
+        <member name="T:Sunday.Core.Api.Attribute.CachingAttribute">
+            <summary>
+            这个Attribute就是使用时候的验证，把它添加到要缓存数据的方法中，即可完成缓存的操作。
+            </summary>
+        </member>
+        <member name="P:Sunday.Core.Api.Attribute.CachingAttribute.AbsoluteExpiration">
+            <summary>
+            缓存绝对过期时间（分钟）
+            </summary>
+        </member>
+        <member name="T:Sunday.Core.Api.Attribute.UseTranAttribute">
+            <summary>
+            这个Attribute就是使用时候的验证，把它添加到需要执行事务的方法中，即可完成事务的操作。
+            </summary>
+        </member>
         <member name="M:Sunday.Core.Api.Filter.GloalActionWrapFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
             <summary>
             方法执行前
@@ -32,71 +47,6 @@
         <member name="M:Sunday.Core.Api.Filter.GloalActionWrapFilter.WriteLog(System.String,System.Exception)">
             <summary>
             自定义返回格式
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.ServiceExtensions.AutoMapperSetup">
-            <summary>
-            Automapper 启动服务
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.ServiceExtensions.CorsSetup">
-            <summary>
-            Cors 启动服务
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.ServiceExtensions.DbSetup">
-            <summary>
-            Db 启动服务
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.ServiceExtensions.JobSetup">
-            <summary>
-            任务调度 启动服务
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.ServiceExtensions.MemoryCacheSetup">
-            <summary>
-            Memory缓存 启动服务
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.ServiceExtensions.MiniProfilerSetup">
-            <summary>
-            MiniProfiler 启动服务
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.ServiceExtensions.RedisCacheSetup">
-            <summary>
-            Redis缓存 启动服务
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.ServiceExtensions.SqlSugarSetup">
-            <summary>
-            SqlSugar 启动服务
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.ServiceExtensions.SwaggerSetup">
-            <summary>
-            Swagger 启动服务
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.ServiceExtensions.CustomApiVersion">
-            <summary>
-            自定义版本
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.ServiceExtensions.CustomApiVersion.ApiVersions">
-            <summary>
-            Api接口版本 自定义
-            </summary>
-        </member>
-        <member name="F:Sunday.Core.Api.ServiceExtensions.CustomApiVersion.ApiVersions.V1">
-            <summary>
-            V1 版本
-            </summary>
-        </member>
-        <member name="F:Sunday.Core.Api.ServiceExtensions.CustomApiVersion.ApiVersions.V2">
-            <summary>
-            V2 版本
             </summary>
         </member>
     </members>

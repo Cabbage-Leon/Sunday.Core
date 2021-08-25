@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Homsom.Friday.Mvc" Version="1.1.0" />
+    <PackageReference Include="Homsom.Friday.Utility" Version="1.1.6" />
     <PackageReference Include="log4net" Version="2.0.12" />
     <PackageReference Include="MiniProfiler.Shared" Version="4.2.22" />
     <PackageReference Include="Quartz" Version="3.3.3" />
@@ -21,11 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\" />
     <Folder Include="DocumentXmls\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Sunday.Core.Application\Sunday.Core.Application.csproj" />
+    <ProjectReference Include="..\Sunday.Core.Extensions\Sunday.Core.Extensions.csproj" />
     <ProjectReference Include="..\Sunday.Core.Infrastructure\Sunday.Core.Infrastructure.csproj" />
     <ProjectReference Include="..\Sunday.Core.Model\Sunday.Core.Model.csproj" />
     <ProjectReference Include="..\Sunday.Core.Project.Persistence\Sunday.Core.Persistence.csproj" />

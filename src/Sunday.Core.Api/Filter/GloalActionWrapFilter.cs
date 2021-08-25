@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using Homsom.Friday.Exceptions;
 using Homsom.Friday.Mvc;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Logging;
 
 namespace Sunday.Core.Api.Filter
 {
     public class GloalActionWrapFilter : ApiResultWrapAttribute
     {
+        private readonly IWebHostEnvironment _env;
+        private readonly ILogger<GloalActionWrapFilter> _loggerHelper;
+
+        public GloalActionWrapFilter(IWebHostEnvironment env, ILogger<GloalActionWrapFilter> loggerHelper)
+        {
+            _env = env;
+            _loggerHelper = loggerHelper;
+        }
+
         private readonly List<string> _requestIgnoreList = new List<string>()
         {
         };
