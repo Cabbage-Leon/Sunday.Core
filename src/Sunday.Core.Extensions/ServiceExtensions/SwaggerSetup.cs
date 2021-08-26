@@ -36,7 +36,7 @@ namespace Sunday.Core.Extensions
                         Title = $"{ApiName} 接口文档——{RuntimeInformation.FrameworkDescription}",
                         Description = $"{ApiName} HTTP API " + version,
                         Contact = new OpenApiContact { Name = ApiName, Email = "Sunday.Core@xxx.com", Url = new Uri("https://iwhero.com") },
-                        License = new OpenApiLicense { Name = ApiName + " 官方文档", Url = new Uri("http://apk.neters.club/.doc/") }
+                        //License = new OpenApiLicense { Name = ApiName + " 官方文档", Url = new Uri("http://apk.neters.club/.doc/") }
                     });
                     setupAction.OrderActionsBy(o => o.RelativePath);
                 });

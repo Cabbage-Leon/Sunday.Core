@@ -40,12 +40,6 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Sunday.Core.Api.Controllers.BlogController.V2_Blogtest">
-            <summary>
-            获取博客测试信息 v2版本
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:Sunday.Core.Api.Controllers.BlogController.Post(Sunday.Core.Domain.Entities.BlogArticle)">
             <summary>
             添加博客【无权限】
