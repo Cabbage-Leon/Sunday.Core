@@ -102,6 +102,7 @@ namespace Sunday.Core.Api
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new AutofacModuleRegister());
+            builder.RegisterModule<AutofacPropertityModuleReg>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
