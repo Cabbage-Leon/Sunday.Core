@@ -4,6 +4,636 @@
         <name>Sunday.Core.Api</name>
     </assembly>
     <members>
+        <member name="T:Sunday.Core.Api.Controllers.BlogController">
+            <summary>
+            博客管理
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.BlogController.#ctor(Microsoft.Extensions.Logging.ILogger{Sunday.Core.Api.Controllers.BlogController})">
+             <summary>
+             构造函数
+             </summary>
+             <param name="logger"></param>
+            
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.BlogController.Get(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取博客列表【无权限】
+            </summary>
+            <param name="id"></param>
+            <param name="page"></param>
+            <param name="bcategory"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.BlogController.Get(System.Int32)">
+            <summary>
+            获取博客详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.BlogController.DetailNuxtNoPer(System.Int32)">
+            <summary>
+            获取详情【无权限】
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.BlogController.V2_Blogtest">
+            <summary>
+            获取博客测试信息 v2版本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.BlogController.Post(Sunday.Core.Domain.Entities.BlogArticle)">
+            <summary>
+            添加博客【无权限】
+            </summary>
+            <param name="blogArticle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.BlogController.AddForMVP(Sunday.Core.Domain.Entities.BlogArticle)">
+             <summary>
+            
+             </summary>
+             <param name="blogArticle"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.BlogController.Put(Sunday.Core.Domain.Entities.BlogArticle)">
+            <summary>
+            更新博客信息
+            </summary>
+            <param name="BlogArticle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.BlogController.Delete(System.Int32)">
+            <summary>
+            删除博客
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.BlogController.ApacheTestUpdate">
+            <summary>
+            apache jemeter 压力测试
+            更新接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sunday.Core.Api.Controllers.HealthCheckController">
+            <summary>
+            健康检查
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.HealthCheckController.Get">
+            <summary>
+            健康检查接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sunday.Core.Api.Controllers.ImgController">
+            <summary>
+            图片管理
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ImgController.DownImg(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            下载图片（支持中文字符）
+            </summary>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ImgController.InsertPicture(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            上传图片,多文件，可以使用 postman 测试，
+            如果是单文件，可以 参数写 IFormFile file1
+            </summary>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunday.Core.Api.Controllers.LoginController">
+            <summary>
+            登录管理【无权限】
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.LoginController.#ctor(Sunday.Core.Application.Services.ISysUserInfoServices,Sunday.Core.Application.Services.IUserRoleServices,Sunday.Core.Application.Services.IRoleServices,Sunday.Core.Extensions.Authorizations.PermissionRequirement,Sunday.Core.Application.Services.IRoleModulePermissionServices)">
+            <summary>
+            构造函数注入
+            </summary>
+            <param name="sysUserInfoServices"></param>
+            <param name="userRoleServices"></param>
+            <param name="roleServices"></param>
+            <param name="requirement"></param>
+            <param name="roleModulePermissionServices"></param>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.LoginController.GetJwtStr(System.String,System.String)">
+            <summary>
+            获取JWT的方法1
+            </summary>
+            <param name="name"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.LoginController.GetJwtStrForNuxt(System.String,System.String)">
+            <summary>
+            获取JWT的方法2：给Nuxt提供
+            </summary>
+            <param name="name"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.LoginController.GetJwtToken3(System.String,System.String)">
+            <summary>
+            获取JWT的方法3：整个系统主要方法
+            </summary>
+            <param name="name"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.LoginController.RefreshToken(System.String)">
+            <summary>
+            请求刷新Token（以旧换新）
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.LoginController.Getjsonp(System.String,System.Int64,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取JWT的方法4：给 JSONP 测试
+            </summary>
+            <param name="callBack"></param>
+            <param name="id"></param>
+            <param name="sub"></param>
+            <param name="expiresSliding"></param>
+            <param name="expiresAbsoulute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.LoginController.Md5Password(System.String)">
+            <summary>
+            测试 MD5 加密字符串
+            </summary>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunday.Core.Api.Controllers.ModuleController">
+            <summary>
+            接口管理
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ModuleController.Get(System.Int32,System.String)">
+            <summary>
+            获取全部接口api
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ModuleController.Post(Sunday.Core.Domain.Entities.Modules)">
+            <summary>
+            添加一条接口信息
+            </summary>
+            <param name="module"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ModuleController.Put(Sunday.Core.Domain.Entities.Modules)">
+            <summary>
+            更新接口信息
+            </summary>
+            <param name="module"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ModuleController.Delete(System.Int32)">
+            <summary>
+            删除一条接口
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.MonitorController.Server">
+            <summary>
+            服务器配置信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.MonitorController.Get">
+            <summary>
+            SignalR send data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sunday.Core.Api.Controllers.PayController">
+            <summary>
+            建行聚合支付类
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PayController.#ctor(Microsoft.Extensions.Logging.ILogger{Sunday.Core.Api.Controllers.PayController},Sunday.Core.Application.Services.IPayServices)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="logger"></param>
+            <param name="payServices"></param>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PayController.PayGet(Sunday.Core.Model.ViewModels.PayNeedModel)">
+            <summary>
+            被扫支付
+            </summary>
+            <param name="payModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PayController.PayPost(Sunday.Core.Model.ViewModels.PayNeedModel)">
+            <summary>
+            被扫支付
+            </summary>
+            <param name="payModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PayController.PayCheckGet(Sunday.Core.Model.ViewModels.PayNeedModel)">
+            <summary>
+            支付结果查询-轮询
+            </summary>
+            <param name="payModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PayController.PayCheckPost(Sunday.Core.Model.ViewModels.PayNeedModel)">
+            <summary>
+            支付结果查询-轮询
+            </summary>
+            <param name="payModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PayController.PayRefundGet(Sunday.Core.Model.ViewModels.PayRefundNeedModel)">
+            <summary>
+            退款
+            </summary>
+            <param name="payModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PayController.PayRefundPost(Sunday.Core.Model.ViewModels.PayRefundNeedModel)">
+            <summary>
+            退款
+            </summary>
+            <param name="payModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunday.Core.Api.Controllers.PermissionController">
+            <summary>
+            菜单管理
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PermissionController.#ctor(Sunday.Core.Application.Services.IPermissionServices,Sunday.Core.Application.Services.IModuleServices,Sunday.Core.Application.Services.IRoleModulePermissionServices,Sunday.Core.Application.Services.IUserRoleServices,Microsoft.AspNetCore.Http.IHttpContextAccessor,Sunday.Core.Infrastructure.HttpContextUser.IUser,Sunday.Core.Extensions.Authorizations.PermissionRequirement)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="permissionServices"></param>
+            <param name="moduleServices"></param>
+            <param name="roleModulePermissionServices"></param>
+            <param name="userRoleServices"></param>
+            <param name="httpContext"></param>
+            <param name="user"></param>
+            <param name="requirement"></param>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PermissionController.Get(System.Int32,System.String)">
+            <summary>
+            获取菜单
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PermissionController.GetTreeTable(System.Int32,System.String)">
+            <summary>
+            查询树形 Table
+            </summary>
+            <param name="f">父节点</param>
+            <param name="key">关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PermissionController.Post(Sunday.Core.Domain.Entities.Permission)">
+            <summary>
+            添加一个菜单
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PermissionController.Assign(Sunday.Core.Api.Controllers.AssignView)">
+            <summary>
+            保存菜单权限分配
+            </summary>
+            <param name="assignView"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PermissionController.GetPermissionTree(System.Int32,System.Boolean)">
+            <summary>
+            获取菜单树
+            </summary>
+            <param name="pid"></param>
+            <param name="needbtn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PermissionController.GetNavigationBar(System.Int32)">
+            <summary>
+            获取路由树
+            </summary>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PermissionController.GetPermissionIdByRoleId(System.Int32)">
+            <summary>
+            通过角色获取菜单【无权限】
+            </summary>
+            <param name="rid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PermissionController.Put(Sunday.Core.Domain.Entities.Permission)">
+            <summary>
+            更新菜单
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.PermissionController.Delete(System.Int32)">
+            <summary>
+            删除菜单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunday.Core.Api.Controllers.RoleController">
+            <summary>
+            角色管理
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.RoleController.Get(System.Int32,System.String)">
+            <summary>
+            获取全部角色
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.RoleController.Post(Sunday.Core.Domain.Entities.Role)">
+            <summary>
+            添加角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.RoleController.Put(Sunday.Core.Domain.Entities.Role)">
+            <summary>
+            更新角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.RoleController.Delete(System.Int32)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TasksQzController.Get(System.Int32,System.String)">
+            <summary>
+            分页获取
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TasksQzController.Post(Sunday.Core.Domain.Entities.TasksQz)">
+            <summary>
+            添加计划任务
+            </summary>
+            <param name="tasksQz"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TasksQzController.Put(Sunday.Core.Domain.Entities.TasksQz)">
+            <summary>
+            修改计划任务
+            </summary>
+            <param name="tasksQz"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TasksQzController.Delete(System.Int32)">
+            <summary>
+            删除一个任务
+            </summary>
+            <param name="jobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TasksQzController.StartJob(System.Int32)">
+            <summary>
+            启动计划任务
+            </summary>
+            <param name="jobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TasksQzController.StopJob(System.Int32)">
+            <summary>
+            停止一个计划任务
+            </summary>
+            <param name="jobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TasksQzController.PauseJob(System.Int32)">
+            <summary>
+            暂停一个计划任务
+            </summary>
+            <param name="jobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TasksQzController.ResumeJob(System.Int32)">
+            <summary>
+            恢复一个计划任务
+            </summary>
+            <param name="jobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TasksQzController.ReCovery(System.Int32)">
+            <summary>
+            重启一个计划任务
+            </summary>
+            <param name="jobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TasksQzController.GetTaskNameSpace">
+            <summary>
+            获取任务命名空间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TasksQzController.ExecuteJob(System.Int32)">
+            <summary>
+            立即执行任务
+            </summary>
+            <param name="jobId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunday.Core.Api.Controllers.TopicController">
+            <summary>
+            类别管理【无权限】
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TopicController.#ctor(Sunday.Core.Application.Services.ITopicServices)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="topicServices"></param>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TopicController.Get">
+            <summary>
+            获取Tibug所有分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sunday.Core.Api.Controllers.TopicDetailController">
+            <summary>
+            Tibug 管理
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TopicDetailController.#ctor(Sunday.Core.Application.Services.ITopicServices,Sunday.Core.Application.Services.ITopicDetailServices)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="topicServices"></param>
+            <param name="topicDetailServices"></param>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TopicDetailController.Get(System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            获取Bug数据列表（带分页）
+            【无权限】
+            </summary>
+            <param name="page">页数</param>
+            <param name="tname">专题类型</param>
+            <param name="key">关键字</param>
+            <param name="intPageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TopicDetailController.Get(System.Int32)">
+            <summary>
+            获取详情【无权限】
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TopicDetailController.Post(Sunday.Core.Domain.Entities.TopicDetail)">
+            <summary>
+            添加一个 BUG 【无权限】
+            </summary>
+            <param name="topicDetail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TopicDetailController.Update(Sunday.Core.Domain.Entities.TopicDetail)">
+            <summary>
+            更新 bug
+            </summary>
+            <param name="topicDetail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TopicDetailController.Delete(System.Int32)">
+            <summary>
+            删除 bug
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.TransactionController.Delete(System.Int32)">
+            <summary>
+            测试事务在AOP中的使用
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunday.Core.Api.Controllers.UserController">
+            <summary>
+            用户管理
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.UserController.#ctor(Sunday.Core.Persistence.UnitOfWork.IUnitOfWork,Sunday.Core.Application.Services.ISysUserInfoServices,Sunday.Core.Application.Services.IUserRoleServices,Sunday.Core.Application.Services.IRoleServices,Sunday.Core.Infrastructure.HttpContextUser.IUser,Microsoft.Extensions.Logging.ILogger{Sunday.Core.Api.Controllers.UserController})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="unitOfWork"></param>
+            <param name="sysUserInfoServices"></param>
+            <param name="userRoleServices"></param>
+            <param name="roleServices"></param>
+            <param name="user"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.UserController.Get(System.Int32,System.String)">
+            <summary>
+            获取全部用户
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.UserController.GetInfoByToken(System.String)">
+            <summary>
+            获取用户详情根据token
+            【无权限】
+            </summary>
+            <param name="token">令牌</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.UserController.Post(Sunday.Core.Domain.Entities.SysUserInfo)">
+            <summary>
+            添加一个用户
+            </summary>
+            <param name="sysUserInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.UserController.Put(Sunday.Core.Domain.Entities.SysUserInfo)">
+            <summary>
+            更新用户与角色
+            </summary>
+            <param name="sysUserInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.UserController.Delete(System.Int32)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sunday.Core.Api.Controllers.UserRoleController">
+            <summary>
+            用户角色关系
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.UserRoleController.#ctor(Sunday.Core.Application.Services.ISysUserInfoServices,Sunday.Core.Application.Services.IUserRoleServices,Sunday.Core.Application.Services.IRoleServices)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sysUserInfoServices"></param>
+            <param name="userRoleServices"></param>
+            <param name="roleServices"></param>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.UserRoleController.AddUser(System.String,System.String)">
+            <summary>
+            新建用户
+            </summary>
+            <param name="loginName"></param>
+            <param name="loginPwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.UserRoleController.AddRole(System.String)">
+            <summary>
+            新建Role
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.UserRoleController.AddUserRole(System.Int32,System.Int32)">
+            <summary>
+            新建用户角色关系
+            </summary>
+            <param name="uid"></param>
+            <param name="rid"></param>
+            <returns></returns>
+        </member>
         <member name="M:Sunday.Core.Api.Filter.GloalActionWrapFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
             <summary>
             方法执行前
@@ -33,6 +663,46 @@
             <summary>
             自定义返回格式
             </summary>
+        </member>
+        <member name="T:Blog.Core.Api.Controllers.NacosController">
+            <summary>
+            服务管理
+            </summary>
+        </member>
+        <member name="F:Blog.Core.Api.Controllers.NacosController.NacosNamingService">
+            <summary>
+            INacosNamingService
+            </summary>
+        </member>
+        <member name="M:Blog.Core.Api.Controllers.NacosController.#ctor(Nacos.V2.INacosNamingService)">
+             <summary>
+            
+             </summary>
+             <param name="nacosNamingService"></param>
+        </member>
+        <member name="M:Blog.Core.Api.Controllers.NacosController.CheckSystemStartFinish">
+            <summary>
+            系统实例是否启动完成
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.Core.Api.Controllers.NacosController.GetStatus">
+            <summary>
+            获取Nacos 状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.Core.Api.Controllers.NacosController.Register">
+            <summary>
+            服务上线
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.Core.Api.Controllers.NacosController.Deregister">
+            <summary>
+            服务下线
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

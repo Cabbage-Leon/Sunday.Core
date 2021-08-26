@@ -126,7 +126,7 @@ namespace Sunday.Core.Project.Persistence.Seed
 
                  .SettingClassTemplate(p => p =
 @"using Blog.Core.IServices;
-using Blog.Core.Model;
+using Sunday.Core.Model;
 using Sunday.Core.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
