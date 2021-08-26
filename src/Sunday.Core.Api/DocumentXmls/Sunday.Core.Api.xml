@@ -4,21 +4,6 @@
         <name>Sunday.Core.Api</name>
     </assembly>
     <members>
-        <member name="T:Sunday.Core.Api.Attribute.CachingAttribute">
-            <summary>
-            这个Attribute就是使用时候的验证，把它添加到要缓存数据的方法中，即可完成缓存的操作。
-            </summary>
-        </member>
-        <member name="P:Sunday.Core.Api.Attribute.CachingAttribute.AbsoluteExpiration">
-            <summary>
-            缓存绝对过期时间（分钟）
-            </summary>
-        </member>
-        <member name="T:Sunday.Core.Api.Attribute.UseTranAttribute">
-            <summary>
-            这个Attribute就是使用时候的验证，把它添加到需要执行事务的方法中，即可完成事务的操作。
-            </summary>
-        </member>
         <member name="M:Sunday.Core.Api.Filter.GloalActionWrapFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
             <summary>
             方法执行前

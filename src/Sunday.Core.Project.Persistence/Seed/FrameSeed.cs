@@ -344,7 +344,7 @@ namespace " + strNameSpace + @"
             var ls = IDbFirst.IsCreateDefaultValue().IsCreateAttribute()
 
                  .SettingClassTemplate(p => p =
-@"using Blog.Core.IRepository.Base;
+@"using Sunday.Core.Persistence.Repositories.Base;
 using Sunday.Core.Domain.Entities" + (isMuti ? "." + ConnId + "" : "") + @";
 
 namespace " + strNameSpace + @"
@@ -400,7 +400,7 @@ namespace " + strNameSpace + @"
             var ls = IDbFirst.IsCreateDefaultValue().IsCreateAttribute()
 
                   .SettingClassTemplate(p => p =
-@"using Blog.Core.IServices.BASE;
+@"using Sunday.Core.Application.Services;
 using Sunday.Core.Domain.Entities" + (isMuti ? "." + ConnId + "" : "") + @";
 
 namespace " + strNameSpace + @"
@@ -521,7 +521,7 @@ namespace " + strNameSpace + @"
 using Blog.Core.IServices" + (isMuti ? "." + ConnId + "" : "") + @";
 using Sunday.Core.Domain.Entities" + (isMuti ? "." + ConnId + "" : "") + @";
 using Blog.Core.Services.BASE;
-using Blog.Core.IRepository.Base;
+using Sunday.Core.Persistence.Repositories.Base;
 
 namespace " + strNameSpace + @"
 {

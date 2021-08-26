@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sunday.Core.Api.Attribute
+namespace Sunday.Core.Infrastructure.Attritube
 {
     /// <summary>
     /// 这个Attribute就是使用时候的验证，把它添加到要缓存数据的方法中，即可完成缓存的操作。
