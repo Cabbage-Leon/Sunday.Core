@@ -29,7 +29,7 @@ namespace Sunday.Core.Extensions
                     c.SwaggerEndpoint($"/swagger/{version}/swagger.json", $"{ApiName} {version}");
                 });
 
-                c.SwaggerEndpoint($"https://petstore.swagger.io/v2/swagger.json", $"{ApiName} pet");
+                //c.SwaggerEndpoint($"https://petstore.swagger.io/v2/swagger.json", $"{ApiName} pet");
 
                 // 将swagger首页，设置成我们自定义的页面，记得这个字符串的写法：{项目名.index.html}
                 if (streamHtml.Invoke() == null)

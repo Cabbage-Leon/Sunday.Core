@@ -7,6 +7,7 @@ using Autofac.Extras.DynamicProxy;
 using log4net;
 using Sunday.Core.AOP;
 using Sunday.Core.Infrastructure;
+using Sunday.Core.Persistence.Repositories.Base;
 
 namespace Sunday.Core.Extensions
 {
@@ -21,12 +22,12 @@ namespace Sunday.Core.Extensions
 
             #region 带有接口层的服务注入
 
-            var servicesDllFile = Path.Combine(basePath, "Blog.Core.Services.dll");
-            var repositoryDllFile = Path.Combine(basePath, "Blog.Core.Repository.dll");
+            var servicesDllFile = Path.Combine(basePath, "Sunday.Core.Application.dll");
+            var repositoryDllFile = Path.Combine(basePath, "Sunday.Core.Persistence.dll");
 
             if (!(File.Exists(servicesDllFile) && File.Exists(repositoryDllFile)))
             {
-                var msg = "Repository.dll和service.dll 丢失，因为项目解耦了，所以需要先F6编译，再F5运行，请检查 bin 文件夹，并拷贝。";
+                var msg = "Sunday.Core.Application.dll和Sunday.Core.Persistence.dll 丢失，因为项目解耦了，所以需要先F6编译，再F5运行，请检查 bin 文件夹，并拷贝。";
                 log.Error(msg);
                 throw new Exception(msg);
             }
@@ -54,7 +55,7 @@ namespace Sunday.Core.Extensions
                 cacheType.Add(typeof(BlogLogAOP));
             }
 
-            //builder.RegisterGeneric(typeof(BaseRepository<>)).As(typeof(IBaseRepository<>)).InstancePerDependency();//注册仓储
+            builder.RegisterGeneric(typeof(BaseRepository<>)).As(typeof(IBaseRepository<>)).InstancePerDependency();//注册仓储
 
             // 获取 Service.dll 程序集服务，并注册
             var assemblysServices = Assembly.LoadFrom(servicesDllFile);

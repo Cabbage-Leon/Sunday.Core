@@ -84,10 +84,11 @@ namespace Sunday.Core.Project.Persistence.Seed
                 // 创建数据库表，遍历指定命名空间下的class，
                 // 注意不要把其他命名空间下的也添加进来。
                 Console.WriteLine("Create Tables...");
-                var modelTypes = from t in Assembly.GetExecutingAssembly().GetTypes()
-                                 where t.IsClass && t.Namespace == "Sunday.Core.Domain.Entities"
-                                 select t;
-                modelTypes.ToList().ForEach(t =>
+                var types = Assembly.GetAssembly(typeof(Advertisement)).GetTypes();
+                var modelTypes = (from t in types
+                                  where t.IsClass && t.Namespace == "Sunday.Core.Domain.Entities"
+                                  select t).ToList();
+                modelTypes.ForEach(t =>
                 {
                     // 这里只支持添加表，不支持删除
                     // 如果想要删除，数据库直接右键删除，或者联系SqlSugar作者；

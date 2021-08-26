@@ -4,9 +4,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
-using Sunday.Core.Extensions;
-
 using Sunday.Core.Infrastructure;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Sunday.Core.Api.Filter;
@@ -155,8 +152,11 @@ namespace Sunday.Core.Api
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
-                endpoints.MapHealthChecks("/health");
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapHub<ChatHub>("/api2/chatHub");
             });
 
             // 生成种子数据

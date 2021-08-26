@@ -31,13 +31,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sunday.Core.Application", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sunday.Core.Tasks", "src\Sunday.Core.Tasks\Sunday.Core.Tasks.csproj", "{4740005F-3195-4C2D-B49B-954A598CD8CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunday.Core.Extensions", "src\Sunday.Core.Extensions\Sunday.Core.Extensions.csproj", "{892AABF4-4D20-4C1F-A85D-D22B509F4341}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sunday.Core.Extensions", "src\Sunday.Core.Extensions\Sunday.Core.Extensions.csproj", "{892AABF4-4D20-4C1F-A85D-D22B509F4341}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.EventBus", "6.EventBus", "{244C8FD8-3FA4-4D39-AB75-936173635CF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunday.Core.EventBus", "src\Sunday.Core.EventBus\Sunday.Core.EventBus.csproj", "{D1C1D95B-A861-4AAC-9F86-F6D78317991D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sunday.Core.EventBus", "src\Sunday.Core.EventBus\Sunday.Core.EventBus.csproj", "{D1C1D95B-A861-4AAC-9F86-F6D78317991D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunday.Core.Serilog.ES", "src\Sunday.Core.Serilog.ES\Sunday.Core.Serilog.ES.csproj", "{EB8BB407-0BB3-4D5C-AFE0-81BAB2BE0C1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sunday.Core.Serilog.ES", "src\Sunday.Core.Serilog.ES\Sunday.Core.Serilog.ES.csproj", "{EB8BB407-0BB3-4D5C-AFE0-81BAB2BE0C1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{D5C7ABAB-24CE-4857-9134-4C99D9346323}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
