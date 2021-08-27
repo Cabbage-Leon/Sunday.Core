@@ -17,6 +17,7 @@ using Sunday.Core.Middlewares;
 using System.Reflection;
 using Sunday.Core.Project.Persistence.Seed;
 using Sunday.Core.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Sunday.Core.Api
 {
@@ -76,6 +77,7 @@ namespace Sunday.Core.Api
             {
                 // 全局异常过滤
                 o.Filters.Add(typeof(GloalActionWrapFilter));
+                o.Conventions.Insert(0, new GlobalRoutePrefixFilter(new RouteAttribute(RoutePrefix.Name)));
             }).AddNewtonsoftJson(options =>
              {
                  //忽略循环引用
