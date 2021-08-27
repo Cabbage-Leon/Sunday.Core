@@ -29,10 +29,10 @@ namespace Sunday.Core.Extensions
             // 然后这么写 [Authorize(Policy = "Admin")]
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Client", policy => policy.RequireRole("Client").Build());
-                options.AddPolicy("Admin", policy => policy.RequireRole("Admin").Build());
-                options.AddPolicy("SystemOrAdmin", policy => policy.RequireRole("Admin", "System"));
-                options.AddPolicy("A_S_O", policy => policy.RequireRole("Admin", "System", "Others"));
+                options.AddPolicy("Client", policyBulider => policyBulider.RequireRole("Client"));
+                options.AddPolicy("Admin", policyBulider => policyBulider.RequireRole("Admin"));
+                options.AddPolicy("SystemOrAdmin", policyBulider => policyBulider.RequireRole("Admin", "System"));
+                options.AddPolicy("A_S_O", policyBulider => policyBulider.RequireRole("Admin", "System", "Others"));
             });
 
             #region 参数
@@ -41,8 +41,8 @@ namespace Sunday.Core.Extensions
             var symmetricKeyAsBase64 = AppSecretConfig.Audience_Secret_String;
             var keyByteArray = Encoding.ASCII.GetBytes(symmetricKeyAsBase64);
             var signingKey = new SymmetricSecurityKey(keyByteArray);
-            var Issuer = Appsettings.App(new string[] { "Audience", "Issuer" });
-            var Audience = Appsettings.App(new string[] { "Audience", "Audience" });
+            var issuer = Appsettings.App(new string[] { "Audience", "Issuer" });
+            var audience = Appsettings.App(new string[] { "Audience", "Audience" });
 
             var signingCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);
 
@@ -54,8 +54,8 @@ namespace Sunday.Core.Extensions
                 "/api/denied",// 拒绝授权的跳转地址（目前无用）
                 permission,
                 ClaimTypes.Role,//基于角色的授权
-                Issuer,//发行人
-                Audience,//听众
+                issuer,//发行人
+                audience,//听众
                 signingCredentials,//签名凭据
                 expiration: TimeSpan.FromSeconds(60 * 60)//接口的过期时间
                 );
@@ -65,8 +65,7 @@ namespace Sunday.Core.Extensions
             // 3、自定义复杂的策略授权
             services.AddAuthorization(options =>
             {
-                options.AddPolicy(Permissions.Name,
-                         policy => policy.Requirements.Add(permissionRequirement));
+                options.AddPolicy(Permissions.Name, policyBuilder => policyBuilder.Requirements.Add(permissionRequirement));
             });
 
             // 4、基于Scope策略授权

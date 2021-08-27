@@ -56,7 +56,10 @@ namespace Sunday.Core.Api
             services.AddKafkaSetup(Configuration);
             services.AddEventBusSetup();
 
+            //授权
             services.AddAuthorizationSetup();
+
+            //认证 -- 框架内置实现了多种认证
             if (Permissions.IsUseIds4)
             {
                 services.AddAuthentication_Ids4Setup();

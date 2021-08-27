@@ -24,8 +24,8 @@ namespace Sunday.Core.Extensions
             var symmetricKeyAsBase64 = AppSecretConfig.Audience_Secret_String;
             var keyByteArray = Encoding.ASCII.GetBytes(symmetricKeyAsBase64);
             var signingKey = new SymmetricSecurityKey(keyByteArray);
-            var Issuer = Appsettings.App(new string[] { "Audience", "Issuer" });
-            var Audience = Appsettings.App(new string[] { "Audience", "Audience" });
+            var issuer = Appsettings.App(new string[] { "Audience", "Issuer" });
+            var audience = Appsettings.App(new string[] { "Audience", "Audience" });
 
             var signingCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);
 
@@ -35,20 +35,20 @@ namespace Sunday.Core.Extensions
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = signingKey,
                 ValidateIssuer = true,
-                ValidIssuer = Issuer,//发行人
+                ValidIssuer = issuer,//发行人
                 ValidateAudience = true,
-                ValidAudience = Audience,//订阅人
+                ValidAudience = audience,//订阅人
                 ValidateLifetime = true,
                 ClockSkew = TimeSpan.FromSeconds(30),
                 RequireExpirationTime = true,
             };
 
             // 开启Bearer认证
-            services.AddAuthentication(o =>
+            services.AddAuthentication(options =>
             {
-                o.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                o.DefaultChallengeScheme = nameof(ApiResponseHandler);
-                o.DefaultForbidScheme = nameof(ApiResponseHandler);
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;//认证走这里
+                //options.DefaultChallengeScheme = nameof(ApiResponseHandler);//失败走这里
+                //options.DefaultForbidScheme = nameof(ApiResponseHandler);//无权限走这里
             })
              // 添加JwtBearer服务
              .AddJwtBearer(o =>
@@ -70,12 +70,12 @@ namespace Sunday.Core.Extensions
                          {
                              var jwtToken = jwtHandler.ReadJwtToken(token);
 
-                             if (jwtToken.Issuer != Issuer)
+                             if (jwtToken.Issuer != issuer)
                              {
                                  context.Response.Headers.Add("Token-Error-Iss", "issuer is wrong!");
                              }
 
-                             if (jwtToken.Audiences.FirstOrDefault() != Audience)
+                             if (jwtToken.Audiences.FirstOrDefault() != audience)
                              {
                                  context.Response.Headers.Add("Token-Error-Aud", "Audience is wrong!");
                              }
@@ -90,7 +90,7 @@ namespace Sunday.Core.Extensions
                      }
                  };
              })
-             .AddScheme<AuthenticationSchemeOptions, ApiResponseHandler>(nameof(ApiResponseHandler), o => { });
+            .AddScheme<AuthenticationSchemeOptions, ApiResponseHandler>(nameof(ApiResponseHandler), o => { });
         }
     }
 }
