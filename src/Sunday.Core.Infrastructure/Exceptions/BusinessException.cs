@@ -1,4 +1,4 @@
-﻿using Homsom.Friday.Exceptions;
+﻿using Sunday.Nuget.Core.Exceptions;
 
 namespace System
 {

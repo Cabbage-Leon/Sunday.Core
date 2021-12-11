@@ -27,13 +27,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Homsom.Friday.Mvc" Version="1.1.0" />
-    <PackageReference Include="Homsom.Friday.Utility" Version="1.1.6" />
     <PackageReference Include="log4net" Version="2.0.12" />
     <PackageReference Include="MiniProfiler.Shared" Version="4.2.22" />
     <PackageReference Include="Quartz" Version="3.3.3" />
     <PackageReference Include="SqlSugarCore" Version="5.0.3.8" />
     <PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.2.1" />
+    <PackageReference Include="Sunday.Nuget.Utility" Version="1.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="6.0.1" />
   </ItemGroup>

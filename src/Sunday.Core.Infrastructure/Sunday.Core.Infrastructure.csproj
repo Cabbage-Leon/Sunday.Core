@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Homsom.Friday.Mvc" Version="1.1.0" />
 
     <PackageReference Include="Confluent.Kafka" Version="1.7.0" />
 
@@ -25,6 +24,8 @@
     <PackageReference Include="Serilog" Version="2.10.0" />
 
     <PackageReference Include="StackExchange.Redis" Version="2.2.4" />
+
+    <PackageReference Include="Sunday.Nuget.Core.Extension" Version="1.0.0" />
 
     <PackageReference Include="WebApiClient.Extensions.DependencyInjection" Version="2.0.3" />
 
