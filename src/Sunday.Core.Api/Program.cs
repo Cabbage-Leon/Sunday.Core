@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Sunday.Core.Extensions.Apollo;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace Sunday.Core.Api
 {
@@ -26,7 +27,7 @@ namespace Sunday.Core.Api
                      {
                          config.Sources.Clear();
                          config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
-                               //.AddJsonFile($"appsettings{ GetAppSettingsConfigName() }json", optional: true, reloadOnChange: false)
+                               .AddJsonFile($"appsettings{ GetAppSettingsConfigName() }json", optional: true, reloadOnChange: false)
                                ;
                          //接入Apollo配置中心
                          config.AddConfigurationApollo("appsettings.apollo.json");
@@ -47,5 +48,20 @@ namespace Sunday.Core.Api
                           builder.AddLog4Net(Path.Combine(Directory.GetCurrentDirectory(), "Log4net.config"));
                       });
                 });
+
+        /// <summary>
+        /// 根据环境变量定向配置文件名称
+        /// </summary>
+        private static string GetAppSettingsConfigName()
+        {
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") != null && Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") != "")
+            {
+                return $".{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.";
+            }
+            else
+            {
+                return ".";
+            }
+        }
     }
 }

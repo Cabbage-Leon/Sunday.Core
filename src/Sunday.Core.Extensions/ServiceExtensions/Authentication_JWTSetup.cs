@@ -23,10 +23,14 @@ namespace Sunday.Core.Extensions
 
             var symmetricKeyAsBase64 = AppSecretConfig.Audience_Secret_String;
             var keyByteArray = Encoding.ASCII.GetBytes(symmetricKeyAsBase64);
+            //密钥
             var signingKey = new SymmetricSecurityKey(keyByteArray);
+            //发行者
             var issuer = Appsettings.App(new string[] { "Audience", "Issuer" });
+            //受众
             var audience = Appsettings.App(new string[] { "Audience", "Audience" });
 
+            //签名
             var signingCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);
 
             // 令牌验证参数

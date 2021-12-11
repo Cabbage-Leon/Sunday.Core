@@ -230,7 +230,7 @@ namespace Sunday.Core.Api.Controllers
         /// <param name="expiresAbsoulute"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("jsonp")]
+        [Route("jsonp")] 
         public void Getjsonp(string callBack, long id = 1, string sub = "Admin", int expiresSliding = 30, int expiresAbsoulute = 30)
         {
             TokenModelJwt tokenModel = new TokenModelJwt

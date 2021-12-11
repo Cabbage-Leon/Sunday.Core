@@ -1,23 +1,23 @@
-using Sunday.Core.Extensions;
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Controllers;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
-using Sunday.Core.Infrastructure;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Sunday.Core.Api.Filter;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Microsoft.AspNetCore.Mvc.Controllers;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using System.Text;
-using Autofac;
+using Sunday.Core.Api.Filter;
+using Sunday.Core.Extensions;
+using Sunday.Core.Infrastructure;
 using Sunday.Core.Middlewares;
-using System.Reflection;
 using Sunday.Core.Project.Persistence.Seed;
 using Sunday.Core.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
+using System.Text;
 
 namespace Sunday.Core.Api
 {
@@ -88,7 +88,7 @@ namespace Sunday.Core.Api
                  //不使用驼峰样式的key
                  options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                  //设置时间格式
-                 //options.SerializerSettings.DateFormatString = "yyyy-MM-dd";
+                 options.SerializerSettings.DateFormatString = "yyyy-MM-dd";
                  //忽略Model中为null的属性
                  //options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                  //设置本地时间而非UTC时间

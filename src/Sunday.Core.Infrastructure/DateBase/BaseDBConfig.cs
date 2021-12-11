@@ -82,15 +82,15 @@ namespace Sunday.Core.Infrastructure
             }
             else if (mutiDBOperate.DbType == DataBaseType.SqlServer)
             {
-                mutiDBOperate.Connection = DifDBConnOfSecurity(@"D:\MyCode\dbCountPsw1_SqlserverConn.txt", mutiDBOperate.Connection);
+                mutiDBOperate.Connection = DifDBConnOfSecurity(@"F:\Password\dbCountPsw1_SqlserverConn.txt", mutiDBOperate.Connection);
             }
             else if (mutiDBOperate.DbType == DataBaseType.MySql)
             {
-                mutiDBOperate.Connection = DifDBConnOfSecurity(@"D:\MyCode\dbCountPsw1_MySqlConn.txt", mutiDBOperate.Connection);
+                mutiDBOperate.Connection = DifDBConnOfSecurity(@"F:\Password\dbCountPsw1_MySqlConn.txt", mutiDBOperate.Connection);
             }
             else if (mutiDBOperate.DbType == DataBaseType.Oracle)
             {
-                mutiDBOperate.Connection = DifDBConnOfSecurity(@"D:\MyCode\dbCountPsw1_OracleConn.txt", mutiDBOperate.Connection);
+                mutiDBOperate.Connection = DifDBConnOfSecurity(@"F:\Password\dbCountPsw1_OracleConn.txt", mutiDBOperate.Connection);
             }
 
             return mutiDBOperate;

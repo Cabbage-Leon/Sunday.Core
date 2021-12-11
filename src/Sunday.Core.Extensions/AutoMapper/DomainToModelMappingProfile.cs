@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Sunday.Core.Domain.Entities;
+using Sunday.Core.Model.ViewModels;
 
 namespace Sunday.Core.Extensions.AutoMapper
 {
@@ -17,18 +19,8 @@ namespace Sunday.Core.Extensions.AutoMapper
             //   .ForMember(d => d.Street, o => o.MapFrom(s => s.Address.Street))
             //   ;
 
-            #region 酒店
-
-            //CreateMap<HotelPictureDto, HotelPicture>();
-
-
-            #endregion
-
-            #region 房间
-
-            //CreateMap<HotelRoomStaticInfoDto, HotelRoomStaticInfo>();
-
-            #endregion
+            CreateMap<BlogArticle, BlogViewModels>();
+            CreateMap<BlogViewModels, BlogArticle>();
 
             #region 基础数据
 
