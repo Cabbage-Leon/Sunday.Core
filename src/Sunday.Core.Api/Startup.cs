@@ -20,6 +20,7 @@ using Sunday.Core.Tasks;
 using System.Reflection;
 using System.Text;
 using Sunday.Core.Extensions.LogExtend;
+using Sunday.Core.Extensions.ElasticSearchLogExtend;
 
 namespace Sunday.Core.Api
 {
@@ -40,6 +41,9 @@ namespace Sunday.Core.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(new Appsettings(Env.ContentRootPath, Env.EnvironmentName));
+            //ElasticSearch日志
+            //services.Configure<ESOptions>(Configuration.GetSection("ElasticSearch"));
+            //services.AddSingleton<ESClientProvider>();
 
             services.AddMemoryCacheSetup();
             services.AddRedisCacheSetup();
@@ -53,7 +57,6 @@ namespace Sunday.Core.Api
             services.AddAppConfigSetup(Env);
             services.AddHttpApi();
             services.AddRedisInitMqSetup();
-
             services.AddRabbitMQSetup();
             services.AddKafkaSetup(Configuration);
             services.AddEventBusSetup();
@@ -143,12 +146,22 @@ namespace Sunday.Core.Api
                 //        EventId = 0
                 //    }) ;
 
-                loggerFactory.AddCustomConsoleLogger(
-                    c =>
+                loggerFactory.AddCustomConsoleLogger(c =>
                 {
                     c.LogLevel = LogLevel.Debug;
                     c.Init("Sunday");
                 });
+                //自定义ELK日志
+                //loggerFactory.AddESLogger(new ESLoggerConfiguration()
+                //{
+                //    ServiceProvider = app.ApplicationServices,
+                //    IndexName = "log-",
+                //    Filter = new FilterLoggerSettings
+                //    {
+                //        {"*", LogLevel.Information}
+                //    }
+                //});
+                    
                 #endregion
             }
 
