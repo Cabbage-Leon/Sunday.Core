@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -18,6 +19,7 @@ using Sunday.Core.Project.Persistence.Seed;
 using Sunday.Core.Tasks;
 using System.Reflection;
 using System.Text;
+using Sunday.Core.Extensions.LogExtend;
 
 namespace Sunday.Core.Api
 {
@@ -111,7 +113,7 @@ namespace Sunday.Core.Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MyContext myContext, ISchedulerCenter schedulerCenter, IHostApplicationLifetime lifetime)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MyContext myContext, ISchedulerCenter schedulerCenter, IHostApplicationLifetime lifetime, ILoggerFactory loggerFactory)
         {
             // Ip限流,尽量放管道外层
             app.UseIpLimitMildd();
@@ -129,6 +131,25 @@ namespace Sunday.Core.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                #region 添加Log4Net或者自定义的
+                //loggerFactory.AddLog4Net();
+                //loggerFactory.AddProvider(new CustomConsoleLoggerProvider())
+                //loggerFactory.AddCustomConsoleLogger();
+
+                //loggerFactory.AddCustomConsoleLogger(
+                //    new CustomConsoleLoggerConfiguration
+                //    {
+                //        LogLevel = LogLevel.Debug,
+                //        EventId = 0
+                //    }) ;
+
+                loggerFactory.AddCustomConsoleLogger(
+                    c =>
+                {
+                    c.LogLevel = LogLevel.Debug;
+                    c.Init("Sunday");
+                });
+                #endregion
             }
 
             // 封装Swagger展示

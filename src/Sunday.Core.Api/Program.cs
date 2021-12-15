@@ -46,6 +46,7 @@ namespace Sunday.Core.Api
 
                           // Ä¬ÈÏlog4net.confg
                           builder.AddLog4Net(Path.Combine(Directory.GetCurrentDirectory(), "Log4net.config"));
+                          
                       });
                 });
 

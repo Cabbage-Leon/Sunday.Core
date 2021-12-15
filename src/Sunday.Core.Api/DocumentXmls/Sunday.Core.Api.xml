@@ -628,6 +628,92 @@
             <param name="rid"></param>
             <returns></returns>
         </member>
+        <member name="T:Sunday.Core.Api.Controllers.ValuesController">
+            <summary>
+            Values控制器
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.#ctor(Sunday.Core.Application.Services.IBlogArticleServices,AutoMapper.IMapper,Sunday.Core.Application.Services.IAdvertisementServices,Sunday.Core.Application.Services.IRoleModulePermissionServices,Sunday.Core.Infrastructure.HttpContextUser.IUser,Sunday.Core.Application.Services.IPasswordLibServices,Microsoft.Extensions.Logging.ILogger{Sunday.Core.Api.Controllers.ValuesController})">
+            <summary>
+            ValuesController
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.EventBusTry(Sunday.Core.EventBus.IEventBus,System.String)">
+            <summary>
+            测试RabbitMQ事件总线
+            </summary>
+            <param name="_eventBus"></param>
+            <param name="blogId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.RequiredP(System.String)">
+            <summary>
+            测试参数是必填项
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.GetUserInfo(System.String)">
+            <summary>
+            通过 HttpContext 获取用户信息
+            </summary>
+            <param name="ClaimType">声明类型，默认 jti </param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.Source">
+            <summary>
+            to redirect by route template name.
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.Destination">
+            <summary>
+            route with template name.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.Post(Sunday.Core.Domain.Entities.BlogArticle,System.Int32)">
+            <summary>
+            测试 post 一个对象 + 独立参数
+            </summary>
+            <param name="blogArticle">model实体类参数</param>
+            <param name="id">独立参数</param>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.TestPostPara(System.String)">
+            <summary>
+            测试 post 参数
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.TestMutiDBAPI">
+            <summary>
+            测试多库连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.Put(System.Int32,System.String)">
+            <summary>
+            Put方法
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.Delete(System.Int32)">
+            <summary>
+            Delete方法
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.GetAllConfigByAppllo(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            测试接入Apollo获取配置信息
+            </summary>
+        </member>
+        <member name="M:Sunday.Core.Api.Controllers.ValuesController.GetConfigByAppllo(System.String)">
+            <summary>
+            通过此处的key格式为 xx:xx:x
+            </summary>
+        </member>
         <member name="M:Sunday.Core.Api.Filter.GloalActionWrapFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
             <summary>
             方法执行前
