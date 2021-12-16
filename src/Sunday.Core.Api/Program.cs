@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Sunday.Core.Extensions.Apollo;
 using Microsoft.Extensions.Logging;
 using System;
+using Sunday.Core.Extensions.ConfigurationExtend;
+using System.Collections.Generic;
 
 namespace Sunday.Core.Api
 {
@@ -27,8 +29,25 @@ namespace Sunday.Core.Api
                      {
                          config.Sources.Clear();
                          config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
-                               .AddJsonFile($"appsettings{ GetAppSettingsConfigName() }json", optional: true, reloadOnChange: false)
-                               ;
+                               .AddJsonFile($"appsettings{ GetAppSettingsConfigName() }json", optional: true, reloadOnChange: false);
+
+                         //自定义配置源
+                         config.AddCustomConfiguration(option =>
+                         {
+                             option.LogTag = "This is CustomConfiguration";
+                             option.DataChangeAction = (key,value) =>
+                             {
+                                 value += "t";
+                             };
+                             option.DataInitFunc = () => 
+                             {
+                                 Dictionary<string, string> dic = new Dictionary<string, string>()
+                                 {
+                                 };
+
+                                 return dic;
+                             };
+                         });
                          //接入Apollo配置中心
                          config.AddConfigurationApollo("appsettings.apollo.json");
                      })
